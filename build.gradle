@@ -14,6 +14,16 @@ repositories {
     mavenCentral()
 }
 
+kotlin {
+    jvmToolchain(17)
+}
+
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(17))
+    }
+}
+
 dependencies {
     ksp("io.micronaut:micronaut-http-validation")
     ksp("io.micronaut.serde:micronaut-serde-processor")
@@ -31,10 +41,6 @@ dependencies {
 application {
     mainClass = "com.example.ApplicationKt"
 }
-java {
-    sourceCompatibility = JavaVersion.toVersion("21")
-}
-
 
 graalvmNative.toolchainDetection = false
 
